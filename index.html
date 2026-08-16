@@ -1,16 +1,203 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-    <title>Aziz - Agent de sécurité</title>
-</head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AZIZ - Agent de sécurité</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      min-height: 100vh;
+      min-height: 100dvh;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      background: #191c20;
+    }
+
+    /* CARTE PRINCIPALE */
+    .card {
+      width: 100%;
+      max-width: 430px;
+      padding: 40px 25px;
+      border-radius: 28px;
+      background-color: #ffffff;
+      
+      /* Ton image de marbre */
+      background-image: url('marbre.jpg.jpg');
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+      text-align: center;
+    }
+
+    /* LOGO SÉCURITÉ METALLIQUE (BOUCLIER + CADENAS) */
+    .logo-securite {
+      width: 85px;
+      height: 102px;
+      margin: 0 auto 18px;
+      display: block;
+      filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.35));
+    }
+
+    /* TEXTES */
+    h1 {
+      font-size: 38px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: #111111;
+      margin-bottom: 2px;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      color: #444444;
+      font-weight: 500;
+      margin-bottom: 28px;
+    }
+
+    /* BOUTONS */
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 15px 20px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .btn-cv {
+      color: #ffffff;
+      background: linear-gradient(180deg, #42474c 0%, #222528 100%);
+      border: 1px solid #111;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-contact {
+      color: #111111;
+      background: #ffffff;
+      border: 2px solid #333333;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    /* BADGES SUR UNE SEULE LIGNE */
+    .tags {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: nowrap;
+      gap: 6px;
+    }
+
+    .tag {
+      padding: 6px 10px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.55);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      font-size: 13px;
+      font-weight: 600;
+      color: #222222;
+      white-space: nowrap;
+    }
+  </style>
+</head>
 <body>
 
-    <h1>AZIZ</h1>
-    <p>Agent de sécurité</p>
+  <div class="card">
+    
+    <!-- Logo vectoriel modifiée d'après l'image de référence -->
+    <div class="logo-securite">
+      <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+        <!-- Dégradé métallique sombre -->
+        <defs>
+          <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#5a626a" />
+            <stop offset="50%" stop-color="#32373d" />
+            <stop offset="100%" stop-color="#1d2024" />
+          </linearGradient>
+        </defs>
+        
+        <!-- Bouclier Externe (Pointe haute en V + bordures identiques à la photo 2) -->
+        <path d="M 50 8 L 88 32 V 68 C 88 95, 50 114, 50 114 C 50 114, 12 95, 12 68 V 32 Z" 
+              fill="none" stroke="url(#metalGrad)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+        
+        <!-- Bouclier Interne -->
+        <path d="M 50 20 L 78 39 V 66 C 78 87, 50 102, 50 102 C 50 102, 22 87, 22 66 V 39 Z" 
+              fill="none" stroke="url(#metalGrad)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+        
+        <!-- Corps Cadenas -->
+        <rect x="38" y="60" width="24" height="20" rx="4" 
+              fill="none" stroke="url(#metalGrad)" stroke-width="4"/>
+        
+        <!-- Anse Cadenas -->
+        <path d="M 43 60 V 50 C 43 44, 57 44, 57 50 V 60" 
+              fill="none" stroke="url(#metalGrad)" stroke-width="4" stroke-linecap="round"/>
+        
+        <!-- Coche Validé -->
+        <path d="M 44 70 L 49 74 L 56 65" 
+              fill="none" stroke="url(#metalGrad)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
 
-    <button>Voir mon CV</button>
-    <button>Me contacter</button>
+    <h1>AZIZ CRABS</h1>
+    <p class="subtitle"></p>
+
+    <div class="buttons">
+      <!-- Lien vers ton CV -->
+      <a href="CV.pdf" target="_blank" class="btn btn-cv">
+        Voir mon CV 📄
+      </a>
+
+      <!-- Bouton Contact qui propose le choix -->
+      <a href="tel:0646557967" class="btn btn-contact">
+  Appeler 📞
+</a>
+<a href="mailto:PROPROAZIZ@gmail.com" class="btn btn-contact">
+  Envoyer un mail ✉️
+</a>
+    </div>
+
+    <script>
+      function choixContact(e) {
+        e.preventDefault();
+        const choix = confirm("Clique sur OK pour appeler, ou Annuler pour envoyer un e-mail.");
+        if (choix) {
+          window.location.href = "tel:0600000000"; // <-- Met ton numéro ici
+        } else {
+          window.location.href = "mailto:tonmail@gmail.com"; // <-- Met ton mail ici
+        }
+      }
+    </script>
+
+    <div class="tags">
+      <span class="tag">Sérieux</span>
+      <span class="tag">Ponctuel</span>
+      <span class="tag">Motivé</span>
+      <span class="tag">Discret</span>
+    </div>
+  </div>
 
 </body>
 </html>
