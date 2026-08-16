@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AZIZ - Agent de sécurité</title>
+  <title>SARAH DUVAL - Peintre en Bâtiment</title>
   <style>
     * {
       box-sizing: border-box;
@@ -23,7 +23,14 @@
       justify-content: center;
       align-items: center;
       padding: 20px;
-      background: #191c20;
+      background: #0f2038; /* Bleu nuit professionnel */
+      /* Motif splash / taches de peinture en arrière-plan */
+      background-image: 
+        radial-gradient(circle at 70% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 20% 80%, rgba(28, 52, 84, 0.6) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, #172a46 0%, #0a1628 100%);
+      position: relative;
+      overflow-x: hidden;
     }
 
     /* CARTE PRINCIPALE */
@@ -32,39 +39,46 @@
       max-width: 430px;
       padding: 40px 25px;
       border-radius: 28px;
-      background-color: #ffffff;
+      background-color: #f7f6f2;
       
-      /* Ton image de marbre */
-      background-image: url('marbre.jpg.jpg');
-      background-size: cover;
-      background-position: center;
-      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+      /* Effet texture d'enduit / stucco de peintre */
+      background-image: 
+        radial-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 0),
+        linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(235,232,225,0.9) 100%);
+      background-size: 8px 8px, 100% 100%;
+      
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
       text-align: center;
+      position: relative;
+      z-index: 2;
     }
 
-    /* LOGO SÉCURITÉ METALLIQUE (BOUCLIER + CADENAS) */
+    /* LOGO PEINTRE (ROULEAU + PINCEAU) */
     .logo-securite {
-      width: 85px;
-      height: 102px;
-      margin: 0 auto 18px;
+      width: 90px;
+      height: 105px;
+      margin: 0 auto 15px;
       display: block;
-      filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.35));
+      filter: drop-shadow(0px 4px 8px rgba(15, 32, 56, 0.25));
     }
 
     /* TEXTES */
     h1 {
-      font-size: 38px;
+      font-size: 32px;
       font-weight: 800;
-      letter-spacing: 2px;
-      color: #111111;
-      margin-bottom: 2px;
+      letter-spacing: 1.5px;
+      color: #0f2038;
+      margin-bottom: 4px;
+      text-transform: uppercase;
     }
 
     .subtitle {
-      font-size: 18px;
-      color: #444444;
-      font-weight: 500;
-      margin-bottom: 28px;
+      font-size: 16px;
+      color: #334155;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 25px;
     }
 
     /* BOUTONS */
@@ -72,7 +86,7 @@
       display: flex;
       flex-direction: column;
       gap: 12px;
-      margin-bottom: 28px;
+      margin-bottom: 25px;
     }
 
     .btn {
@@ -80,25 +94,30 @@
       padding: 15px 20px;
       border-radius: 12px;
       text-decoration: none;
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 700;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn:active {
+      transform: scale(0.98);
     }
 
     .btn-cv {
       color: #ffffff;
-      background: linear-gradient(180deg, #42474c 0%, #222528 100%);
-      border: 1px solid #111;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      background: linear-gradient(180deg, #1e3a60 0%, #0f2038 100%);
+      border: 1px solid #0a1628;
+      box-shadow: 0 4px 12px rgba(15, 32, 56, 0.3);
     }
 
     .btn-contact {
-      color: #111111;
+      color: #0f2038;
       background: #ffffff;
-      border: 2px solid #333333;
+      border: 2px solid #1e3a60;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     }
 
@@ -107,18 +126,18 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-wrap: nowrap;
+      flex-wrap: wrap;
       gap: 6px;
     }
 
     .tag {
       padding: 6px 10px;
       border-radius: 6px;
-      background: rgba(255, 255, 255, 0.55);
-      border: 1px solid rgba(0, 0, 0, 0.08);
-      font-size: 13px;
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(15, 32, 56, 0.12);
+      font-size: 12px;
       font-weight: 600;
-      color: #222222;
+      color: #0f2038;
       white-space: nowrap;
     }
   </style>
@@ -127,56 +146,47 @@
 
   <div class="card">
     
-    <!-- Logo vectoriel modifiée d'après l'image de référence -->
+    <!-- Logo Vectoriel Peintre (Rouleau & Pinceau) -->
     <div class="logo-securite">
       <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
-        <!-- Dégradé métallique sombre -->
         <defs>
-          <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#5a626a" />
-            <stop offset="50%" stop-color="#32373d" />
-            <stop offset="100%" stop-color="#1d2024" />
+          <linearGradient id="paintGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#2d5282" />
+            <stop offset="50%" stop-color="#1e3a60" />
+            <stop offset="100%" stop-color="#0f2038" />
           </linearGradient>
         </defs>
         
-        <!-- Bouclier Externe (Pointe haute en V + bordures identiques à la photo 2) -->
-        <path d="M 50 8 L 88 32 V 68 C 88 95, 50 114, 50 114 C 50 114, 12 95, 12 68 V 32 Z" 
-              fill="none" stroke="url(#metalGrad)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+        <!-- Rouleau de peinture -->
+        <rect x="25" y="15" width="50" height="20" rx="4" fill="none" stroke="url(#paintGrad)" stroke-width="4.5"/>
+        <path d="M 75 25 H 83 V 48 H 53 V 62" fill="none" stroke="url(#paintGrad)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="47" y="62" width="12" height="22" rx="3" fill="none" stroke="url(#paintGrad)" stroke-width="4"/>
         
-        <!-- Bouclier Interne -->
-        <path d="M 50 20 L 78 39 V 66 C 78 87, 50 102, 50 102 C 50 102, 22 87, 22 66 V 39 Z" 
-              fill="none" stroke="url(#metalGrad)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
-        
-        <!-- Corps Cadenas -->
-        <rect x="38" y="60" width="24" height="20" rx="4" 
-              fill="none" stroke="url(#metalGrad)" stroke-width="4"/>
-        
-        <!-- Anse Cadenas -->
-        <path d="M 43 60 V 50 C 43 44, 57 44, 57 50 V 60" 
-              fill="none" stroke="url(#metalGrad)" stroke-width="4" stroke-linecap="round"/>
-        
-        <!-- Coche Validé -->
-        <path d="M 44 70 L 49 74 L 56 65" 
-              fill="none" stroke="url(#metalGrad)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Pinceau croisé -->
+        <path d="M 22 75 L 38 75 L 36 90 L 24 90 Z" fill="none" stroke="url(#paintGrad)" stroke-width="3.5" stroke-linejoin="round"/>
+        <path d="M 22 90 C 22 96, 38 96, 38 90" fill="none" stroke="url(#paintGrad)" stroke-width="3.5"/>
+        <path d="M 27 95 L 27 110 A 3 3 0 0 0 33 110 L 33 95" fill="none" stroke="url(#paintGrad)" stroke-width="3.5"/>
       </svg>
     </div>
 
-    <h1>AZIZ CRABS</h1>
-    <p class="subtitle"></p>
+    <h1>SARAH DUVAL</h1>
+    <p class="subtitle">Peintre en Bâtiment</p>
 
     <div class="buttons">
-      <!-- Lien vers ton CV -->
-      <a href="CV.pdf" target="_blank" class="btn btn-cv">
-        Voir mon CV 📄
+      <!-- Bouton Réalisations / Portfolio -->
+      <a href="realisations.pdf" target="_blank" class="btn btn-cv">
+        Voir mes réalisations 📸
       </a>
 
-      <!-- Bouton Contact qui propose le choix -->
-      <a href="tel:0646557967" class="btn btn-contact">
-  Appeler 📞
-</a>
-<a href="mailto:PROPROAZIZ@gmail.com" class="btn btn-contact">
-  Envoyer un mail ✉️
-</a>
+      <!-- Bouton Devis -->
+      <a href="mailto:contact@sarah-peinture.fr?subject=Demande%20de%20devis" class="btn btn-contact">
+        Demander un devis ✉️
+      </a>
+
+      <!-- Bouton Appeler -->
+      <a href="tel:0600000000" class="btn btn-contact">
+        Me contacter 📞
+      </a>
     </div>
 
     <script>
@@ -184,18 +194,18 @@
         e.preventDefault();
         const choix = confirm("Clique sur OK pour appeler, ou Annuler pour envoyer un e-mail.");
         if (choix) {
-          window.location.href = "tel:0600000000"; // <-- Met ton numéro ici
+          window.location.href = "tel:0600000000"; // <-- Met le numéro ici
         } else {
-          window.location.href = "mailto:tonmail@gmail.com"; // <-- Met ton mail ici
+          window.location.href = "mailto:contact@sarah-peinture.fr"; // <-- Met le mail ici
         }
       }
     </script>
 
     <div class="tags">
-      <span class="tag">Sérieux</span>
-      <span class="tag">Ponctuel</span>
-      <span class="tag">Motivé</span>
-      <span class="tag">Discret</span>
+      <span class="tag">Expert Finitions</span>
+      <span class="tag">Détails Meticuleux</span>
+      <span class="tag">Couleurs Tendance</span>
+      <span class="tag">Respect des Délais</span>
     </div>
   </div>
 
